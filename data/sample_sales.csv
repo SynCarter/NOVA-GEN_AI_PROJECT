@@ -1,0 +1,13 @@
+region,product,unit_price,quantity,revenue
+East,Laptop,18000,4,72000
+East,Phone,22000,7,154000
+West,Laptop,19500,3,58500
+North,Tablet,12000,8,96000
+South,Phone,24000,5,120000
+East,Tablet,15000,6,90000
+West,Phone,21000,9,189000
+North,Laptop,18500,2,37000
+South,Laptop,20000,4,80000
+East,Phone,23000,3,69000
+West,Tablet,14000,10,140000
+South,Phone,25000,2,50000
