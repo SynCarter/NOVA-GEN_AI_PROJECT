@@ -1,3 +1,8 @@
+# System Architecture
+
+**Developer:** S Larens | **Roll No:** 23053071  
+**Project:** NOVA AI Data Analyst  
+
 ```mermaid
 flowchart TD
     U[User] --> UI[Streamlit UI]

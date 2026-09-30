@@ -1,5 +1,10 @@
 # AI Data Analyst — GenAI Capstone Report Draft
 
+**Author / Developer:** S Larens  
+**Roll No:** 23053071  
+**Project Title:** NOVA — AI Data Intelligence & Natural Language Analytics Platform  
+**Submission Date:** September 2026  
+
 ## 1. Problem Statement
 Users often have to inspect CSV files manually, write code for simple calculations, and create charts before they can answer basic analytical questions. The project provides a conversational interface that converts common natural-language questions into verified dataframe operations and visual evidence.
 

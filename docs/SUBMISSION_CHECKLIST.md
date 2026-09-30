@@ -1,5 +1,9 @@
 # Final Submission Checklist
 
+**Student:** S Larens | **Roll No:** 23053071  
+**Project:** NOVA — AI Data Analyst  
+
+
 - [ ] Run `pytest -q`
 - [ ] Run `python evaluate.py`
 - [ ] Launch with `streamlit run app.py`
