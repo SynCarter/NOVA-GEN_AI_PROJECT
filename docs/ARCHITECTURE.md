@@ -1,6 +1,6 @@
 # System Architecture
 
-**Developer:** S Larens | **Roll No:** 23053071  
+**Developer:** Priyotosh Das | **Roll No:** 23053065  
 **Project:** NOVA AI Data Analyst  
 
 ```mermaid

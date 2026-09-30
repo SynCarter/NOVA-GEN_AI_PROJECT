@@ -22,8 +22,8 @@ from src.ai import (
 # PAGE CONFIGURATION
 # ============================================================
 st.set_page_config(
-    page_title="NOVA | AI Data Intelligence Studio — S Larens",
-    page_icon="✦",
+    page_title="NOVA | Data Intelligence Workspace — Priyotosh Das",
+    page_icon="◈",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -33,49 +33,57 @@ st.set_page_config(
 # ============================================================
 st.markdown("""
 <style>
-    /* Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    /* Editorial data-workspace design system */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 
     :root {
-        --primary: #8b5cf6;
-        --primary-glow: rgba(139, 92, 246, 0.35);
-        --accent-cyan: #06b6d4;
-        --accent-emerald: #10b981;
-        --accent-rose: #f43f5e;
-        --accent-amber: #f59e0b;
-        --bg-dark: #070b14;
-        --card-bg: rgba(15, 23, 42, 0.72);
-        --card-border: rgba(255, 255, 255, 0.08);
-        --card-hover: rgba(30, 41, 59, 0.85);
-        --text-main: #f1f5f9;
-        --text-muted: #94a3b8;
+        --primary: #8272ff;
+        --primary-glow: rgba(130, 114, 255, 0.28);
+        --accent-cyan: #4bd5ff;
+        --accent-emerald: #56e0aa;
+        --accent-rose: #ff7797;
+        --accent-amber: #ffc66d;
+        --bg-dark: #0a0d16;
+        --card-bg: rgba(20, 24, 39, 0.82);
+        --card-border: rgba(224, 230, 255, 0.1);
+        --card-hover: rgba(34, 39, 61, 0.96);
+        --text-main: #f7f7fc;
+        --text-muted: #a1a9c0;
     }
 
     html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     code, pre {
-        font-family: 'JetBrains Mono', monospace !important;
+        font-family: 'DM Mono', monospace !important;
     }
 
     /* Background glow effect */
     .stApp {
-        background-color: #070b14;
+        background-color: #0a0d16;
         background-image: 
-            radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
-            radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
-            radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.5) 0px, transparent 100%);
+            radial-gradient(ellipse at 8% -10%, rgba(94, 75, 211, 0.28) 0px, transparent 40%),
+            radial-gradient(ellipse at 92% 6%, rgba(38, 167, 218, 0.16) 0px, transparent 34%),
+            linear-gradient(180deg, #101426 0%, #0a0d16 42%, #0a0d16 100%);
     }
+
+    [data-testid="stAppViewContainer"] > .main { padding-top: 1.25rem; }
+    .block-container { max-width: 1450px; padding-top: 1.25rem; padding-bottom: 3.5rem; }
+    [data-testid="stSidebar"] { background: #101426; border-right: 1px solid rgba(224, 230, 255, 0.09); }
+    [data-testid="stSidebar"] > div:first-child { padding-top: 1.2rem; }
+    [data-testid="stSidebar"] .stMarkdown h3 { font-size: 0.72rem; letter-spacing: 0.12em; color: #7f8aa8; text-transform: uppercase; margin-top: 1.5rem; }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] { border: 1px dashed rgba(130, 114, 255, 0.42); border-radius: 12px; padding: 0.3rem; background: rgba(130, 114, 255, 0.05); }
+    [data-testid="stSidebar"] .stButton button { min-height: 2.7rem; border-radius: 10px; }
 
     /* Top Brand Hero */
     .hero-container {
-        background: linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-        border: 1px solid rgba(139, 92, 246, 0.25);
-        border-radius: 16px;
-        padding: 24px 28px;
-        margin-bottom: 24px;
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(139, 92, 246, 0.2);
+        background: linear-gradient(118deg, rgba(29, 34, 58, 0.96) 0%, rgba(21, 25, 42, 0.93) 54%, rgba(20, 42, 63, 0.84) 100%);
+        border: 1px solid rgba(169, 161, 255, 0.22);
+        border-radius: 22px;
+        padding: 28px 32px;
+        margin-bottom: 28px;
+        box-shadow: 0 22px 55px -30px #000, inset 0 1px 0 rgba(255,255,255,0.06);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -84,9 +92,9 @@ st.markdown("""
     }
 
     .hero-title {
-        font-size: 1.85rem;
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
         font-weight: 800;
-        background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #a78bfa 100%);
+        background: linear-gradient(100deg, #ffffff 5%, #d7d3ff 54%, #70dcff 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin: 0;
@@ -95,16 +103,16 @@ st.markdown("""
 
     .hero-subtitle {
         color: #94a3b8;
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         margin-top: 4px;
         margin-bottom: 0;
     }
 
     .student-badge {
-        background: rgba(139, 92, 246, 0.15);
-        border: 1px solid rgba(139, 92, 246, 0.4);
-        border-radius: 12px;
-        padding: 8px 16px;
+        background: rgba(8, 12, 24, 0.42);
+        border: 1px solid rgba(129, 207, 255, 0.25);
+        border-radius: 14px;
+        padding: 10px 15px;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -113,15 +121,15 @@ st.markdown("""
     .student-avatar {
         width: 38px;
         height: 38px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        border-radius: 12px;
+        background: linear-gradient(135deg, #8a78ff, #42c8f2);
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 700;
         font-size: 1rem;
-        box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+        box-shadow: 0 8px 18px rgba(86, 100, 255, 0.32);
     }
 
     .student-info-name {
@@ -132,18 +140,18 @@ st.markdown("""
     }
 
     .student-info-roll {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: 'DM Mono', monospace;
         font-size: 0.8rem;
         color: #38bdf8;
     }
 
     /* Glass Cards */
     .nova-card {
-        background: var(--card-bg);
+        background: linear-gradient(145deg, rgba(28, 33, 53, 0.86), rgba(18, 22, 37, 0.91));
         border: 1px solid var(--card-border);
-        border-radius: 14px;
+        border-radius: 16px;
         padding: 20px;
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(18px);
         transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         margin-bottom: 16px;
     }
@@ -155,9 +163,9 @@ st.markdown("""
 
     /* Metric KPI Cards */
     .metric-card-custom {
-        background: linear-gradient(145deg, rgba(20, 28, 48, 0.85) 0%, rgba(12, 18, 33, 0.9) 100%);
+        background: linear-gradient(145deg, rgba(33, 39, 63, 0.9) 0%, rgba(18, 22, 37, 0.96) 100%);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
+        border-radius: 16px;
         padding: 18px 20px;
         position: relative;
         overflow: hidden;
@@ -177,7 +185,7 @@ st.markdown("""
         left: 0;
         right: 0;
         height: 3px;
-        background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+        background: linear-gradient(90deg, #8a78ff, #50dcff);
         opacity: 0.8;
     }
 
@@ -193,7 +201,7 @@ st.markdown("""
         font-size: 1.85rem;
         font-weight: 800;
         color: #ffffff;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: 'DM Mono', monospace;
         letter-spacing: -0.03em;
         line-height: 1.1;
     }
@@ -297,18 +305,18 @@ st.markdown("""
         line-height: 1.6;
     }
 
-    /* Landing Hero */
+    /* Landing experience */
     .landing-hero {
-        text-align: center;
-        padding: 40px 20px 30px;
-        max-width: 900px;
-        margin: 0 auto;
+        text-align: left;
+        padding: 34px 12px 22px;
+        max-width: 820px;
+        margin: 0;
     }
 
     .landing-title {
-        font-size: 2.75rem;
+        font-size: clamp(2.2rem, 5vw, 4rem);
         font-weight: 800;
-        background: linear-gradient(135deg, #ffffff 10%, #c4b5fd 50%, #38bdf8 100%);
+        background: linear-gradient(105deg, #ffffff 10%, #d1ccff 46%, #54d5ff 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         letter-spacing: -0.03em;
@@ -316,7 +324,7 @@ st.markdown("""
     }
 
     .landing-desc {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
         color: #94a3b8;
         line-height: 1.6;
         margin-bottom: 28px;
@@ -325,15 +333,15 @@ st.markdown("""
     .feature-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-        margin: 32px 0;
+        gap: 14px;
+        margin: 30px 0;
     }
 
     .feature-box {
-        background: rgba(15, 23, 42, 0.65);
+        background: linear-gradient(145deg, rgba(29, 34, 54, 0.88), rgba(18, 22, 38, 0.82));
         border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 14px;
-        padding: 24px;
+        border-radius: 16px;
+        padding: 22px;
         text-align: left;
         transition: all 0.25s ease;
     }
@@ -364,16 +372,19 @@ st.markdown("""
 
     /* Custom Streamlit Tabs styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding-bottom: 4px;
+        gap: 6px;
+        border-bottom: none;
+        padding: 6px;
+        background: rgba(16, 20, 36, 0.72);
+        border: 1px solid rgba(224, 230, 255, 0.08);
+        border-radius: 14px;
     }
 
     .stTabs [data-baseweb="tab"] {
-        height: 44px;
+        height: 40px;
         white-space: pre-wrap;
-        border-radius: 8px 8px 0px 0px;
-        padding: 8px 18px;
+        border-radius: 9px;
+        padding: 8px 15px;
         color: #94a3b8;
         font-weight: 600;
         font-size: 0.92rem;
@@ -384,8 +395,8 @@ st.markdown("""
 
     .stTabs [aria-selected="true"] {
         color: #ffffff !important;
-        background: rgba(139, 92, 246, 0.15) !important;
-        border-bottom: 3px solid #8b5cf6 !important;
+        background: linear-gradient(135deg, rgba(130, 114, 255, 0.34), rgba(67, 194, 244, 0.20)) !important;
+        border-bottom: none !important;
     }
 
     /* Footer */
@@ -401,6 +412,11 @@ st.markdown("""
         color: #64748b;
         font-size: 0.82rem;
     }
+
+    div[data-testid="stMetric"] { background: rgba(25, 30, 49, 0.72); border: 1px solid rgba(224,230,255,0.08); border-radius: 14px; padding: 14px; }
+    [data-testid="stDataFrame"] { border: 1px solid rgba(224,230,255,0.1); border-radius: 14px; overflow: hidden; }
+    .stButton > button[kind="primary"] { background: linear-gradient(100deg, #7568ef, #3fbfe8); border: none; box-shadow: 0 8px 20px rgba(76, 106, 234, 0.25); }
+    @media (max-width: 700px) { .hero-container { padding: 22px; } .landing-hero { padding-left: 4px; } }
 </style>
 """, unsafe_allow_html=True)
 
@@ -468,21 +484,22 @@ def calculate_health_score(dataframe: pd.DataFrame) -> int:
 with st.sidebar:
     # Student / Developer Profile Badge
     st.markdown("""
-    <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
-                border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 14px; padding: 16px; margin-bottom: 20px;">
+    <div style="background: linear-gradient(145deg, rgba(43, 47, 81, 0.94), rgba(20, 25, 43, 0.96));
+                border: 1px solid rgba(142, 132, 255, 0.36); border-radius: 18px; padding: 18px; margin-bottom: 22px;
+                box-shadow: 0 16px 32px -24px #000;">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-            <div style="width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            <div style="width: 44px; height: 44px; border-radius: 13px; background: linear-gradient(135deg, #8978ff, #43cbed);
                         display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: #fff;
                         box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);">
-                SL
+                PD
             </div>
             <div>
-                <div style="font-weight: 800; font-size: 1.05rem; color: #f8fafc; letter-spacing: -0.01em;">S Larens</div>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #38bdf8; font-weight: 600;">Roll: 23053071</div>
+                <div style="font-weight: 800; font-size: 1.02rem; color: #f8fafc; letter-spacing: -0.02em;">Priyotosh Das</div>
+                <div style="font-family: 'DM Mono', monospace; font-size: 0.78rem; color: #68d9fa; font-weight: 500;">ROLL · 23053065</div>
             </div>
         </div>
         <div style="font-size: 0.75rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
-            ✦ GenAI Capstone: AI Data Intelligence Platform
+            ◈ AI DATA INTELLIGENCE CAPSTONE
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -561,17 +578,17 @@ st.markdown("""
 <div class="hero-container">
     <div>
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-            <span class="status-pill pill-purple">✦ NOVA DATA LAB</span>
-            <span class="status-pill pill-cyan">v2.5 Interactive Edition</span>
+            <span class="status-pill pill-purple">◈ NOVA WORKSPACE</span>
+            <span class="status-pill pill-cyan">LIVE ANALYTICS</span>
         </div>
-        <h1 class="hero-title">NOVA · AI Data Analyst</h1>
-        <p class="hero-subtitle">Conversational natural-language query routing, verified Pandas calculation, and deep visual intelligence.</p>
+        <h1 class="hero-title">Your data, made intelligible.</h1>
+        <p class="hero-subtitle">A refined analytics workspace for grounded answers, visual discovery, and confident decisions.</p>
     </div>
     <div class="student-badge">
-        <div class="student-avatar">SL</div>
+        <div class="student-avatar">PD</div>
         <div>
-            <div class="student-info-name">S Larens</div>
-            <div class="student-info-roll">Roll No: 23053071</div>
+            <div class="student-info-name">Priyotosh Das</div>
+            <div class="student-info-roll">ROLL · 23053065</div>
         </div>
     </div>
 </div>
@@ -583,9 +600,9 @@ st.markdown("""
 if st.session_state["df"] is None:
     st.markdown("""
     <div class="landing-hero">
-        <div class="landing-title">Empower Your Data with Grounded GenAI</div>
+        <div class="landing-title">Bring every data story into focus.</div>
         <div class="landing-desc">
-            Transform raw tabular datasets into interactive dashboards, deep statistical insights, and instant conversational answers without writing a single line of SQL or Python.
+            Drop in a dataset and move from raw rows to clear, verified insight—through interactive visuals and natural-language questions.
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -651,7 +668,7 @@ if st.session_state["df"] is None:
             Table --> FinalUI
         ```
         """, unsafe_allow_html=True)
-        st.caption("Developed by S Larens | Roll No: 23053071")
+        st.caption("Developed by Priyotosh Das | Roll No: 23053065")
 
     st.stop()
 
@@ -1421,16 +1438,17 @@ with tabs[5]:
 
     # Student Credentials Card
     st.markdown("""
-    <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
-                border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 14px; padding: 24px; margin-bottom: 24px;">
+    <div style="background: linear-gradient(120deg, rgba(39, 43, 75, 0.95), rgba(18, 38, 57, 0.92));
+                border: 1px solid rgba(115, 195, 255, 0.25); border-radius: 18px; padding: 24px; margin-bottom: 24px;
+                box-shadow: 0 18px 36px -26px #000;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <div>
                 <div style="font-size: 0.82rem; text-transform: uppercase; color: #a78bfa; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 4px;">
                     PROJECT DEVELOPER & CANDIDATE
                 </div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #ffffff;">S Larens</div>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; color: #38bdf8; font-weight: 600; margin-top: 4px;">
-                    Roll Number: 23053071
+                <div style="font-size: 1.8rem; font-weight: 800; color: #ffffff;">Priyotosh Das</div>
+                <div style="font-family: 'DM Mono', monospace; font-size: 1.05rem; color: #68d9fa; font-weight: 500; margin-top: 4px;">
+                    Roll Number: 23053065
                 </div>
             </div>
             <div style="text-align: right;">
@@ -1445,8 +1463,8 @@ with tabs[5]:
 
     # Executive Summary Report Generator
     report_content = f"""# Executive Analytical Report — NOVA AI Data Analyst
-**Developer:** S Larens  
-**Roll No:** 23053071  
+**Developer:** Priyotosh Das  
+**Roll No:** 23053065  
 **Generated On:** {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}  
 **Dataset:** {st.session_state.get('dataset_name', 'Active Dataset')}
 
@@ -1485,7 +1503,7 @@ with tabs[5]:
     st.download_button(
         "📥 Download Executive Markdown Report (.md)",
         data=report_content.encode("utf-8"),
-        file_name=f"NOVA_Report_S_Larens_23053071.md",
+        file_name=f"NOVA_Report_Priyotosh_Das_23053065.md",
         mime="text/markdown",
         use_container_width=True,
         type="primary"
@@ -1497,9 +1515,9 @@ with tabs[5]:
 st.markdown("""
 <div class="footer-container">
     <div>
-        ✦ <b>NOVA</b> · AI Data Intelligence Studio · Developed by <b>S Larens</b> (Roll No: <b>23053071</b>)
+        ◈ <b>NOVA</b> · AI Data Intelligence Workspace · Developed by <b>Priyotosh Das</b> (Roll No: <b>23053065</b>)
     </div>
-    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;">
+    <div style="font-family: 'DM Mono', monospace; font-size: 0.78rem;">
         Deterministic Pandas Core · Plotly Express · Local GenAI
     </div>
 </div>

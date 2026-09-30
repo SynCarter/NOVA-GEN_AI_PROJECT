@@ -1,6 +1,6 @@
 # Final Submission Checklist
 
-**Student:** S Larens | **Roll No:** 23053071  
+**Student:** Priyotosh Das | **Roll No:** 23053065  
 **Project:** NOVA — AI Data Analyst  
 
 

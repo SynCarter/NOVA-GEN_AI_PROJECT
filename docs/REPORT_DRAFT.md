@@ -1,7 +1,7 @@
 # AI Data Analyst — GenAI Capstone Report Draft
 
-**Author / Developer:** S Larens  
-**Roll No:** 23053071  
+**Author / Developer:** Priyotosh Das  
+**Roll No:** 23053065  
 **Project Title:** NOVA — AI Data Intelligence & Natural Language Analytics Platform  
 **Submission Date:** September 2026  
 

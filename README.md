@@ -1,7 +1,7 @@
 # NOVA — AI Data Analyst
 
-**Developer:** S Larens  
-**Roll No:** 23053071  
+**Developer:** Priyotosh Das  
+**Roll No:** 23053065  
 
 NOVA is a free-to-run GenAI data-analysis assistant. Users upload CSV data, ask questions in natural language, receive calculation-backed answers and explore interactive visualizations.
 
